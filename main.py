@@ -1,4 +1,4 @@
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QSize
 from PyQt5.QtWidgets import QPushButton, QLabel, \
     QLineEdit, QTextEdit, QApplication, QCheckBox, QComboBox, QRadioButton, QMainWindow
 
@@ -7,23 +7,42 @@ ilova = QApplication([])
 class Oyna(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.btn = QPushButton("Click")
-        self.btn.clicked.connect(self.btn_clicked)
-        self.btn.setStyleSheet("font-size:45px;")
-        self.btn.setFixedSize(400, 260)
-        self.setCentralWidget(self.btn)
-        self.c = 0
+        self.le = QTextEdit()
+        self.le.setPlaceholderText("enter your name")
+        self.le.textChanged.connect(self.le_changed)
+        self.setCentralWidget(self.le)
 
-    def btn_clicked(self):
-        self.c += 1
-        self.btn.setText(f"{self.c}")
+    def le_changed(self):
+        print(self.le.toPlainText())
+
+        # self.btn = QPushButton("Click")
+        # self.btn.clicked.connect(self.btn_clicked)
+        # self.btn.setStyleSheet("font-size:45px;")
+        # self.btn.setFixedSize(400, 260)
+        # self.setCentralWidget(self.btn)
+        # self.c = 0
+    # def btn_clicked(self):
+        # self.c += 1
+        # self.btn.setText(f"{self.c}")
         # self.btn.setEnabled(False)
 
 
 
 
-a = Oyna()
+a = QComboBox()
+a.addItems(["O'zbekiston", "Qirg'iziston", "Ozarbayjon", "Turkmaniston"])
+b = QPushButton("Bos")
 a.show()
+b.show()
+def bosildi():
+    print(a.currentText())
+
+b.clicked.connect(bosildi)
+
+
+
+# a = Oyna()
+# a.show()
 
 
 
