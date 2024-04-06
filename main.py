@@ -26,26 +26,20 @@ class Oyna(QMainWindow):
         # self.btn.setText(f"{self.c}")
         # self.btn.setEnabled(False)
 
-
-
-
-a = QComboBox()
-a.addItems(["O'zbekiston", "Qirg'iziston", "Ozarbayjon", "Turkmaniston"])
+# a = QComboBox()
+# a.addItems(["O'zbekiston", "Qirg'iziston", "Ozarbayjon", "Turkmaniston"])
+a = QRadioButton()
 b = QPushButton("Bos")
 a.show()
 b.show()
 def bosildi():
-    print(a.currentText())
-
+    a.setAutoExclusive(False)
+    a.setChecked(False)
+    a.setAutoExclusive(True)
 b.clicked.connect(bosildi)
-
-
 
 # a = Oyna()
 # a.show()
-
-
-
 ilova.exec()
 
 
